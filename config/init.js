@@ -55,7 +55,16 @@ var navbar = [
 
 var mainContent = 'i am main content';
 
+var defaultSql = {
+  host: 'localhost',
+  port: '32080',
+  database: 'all_user_info',
+  user: 'root',
+  password: 'zhen@1234'
+}
+
 module.exports = {
   navbar: navbar,
-  mainContent: mainContent
+  mainContent: mainContent,
+  defaultSql: defaultSql
 }
