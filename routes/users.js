@@ -1,9 +1,21 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let logger = require('../log4js/log4js').logger;
+
+let fs = require('fs');
+let path = require('path');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/getArticalList', function(req, res, next) {
+  debugger;
+  fs.readdir(path.resolve('./resources/articals'), (err, files) => {
+    if (err) {
+      logger.error(`get artical list error: ${err}`);
+    } else {
+      logger.info(files.length);
+      res.json(files);
+    }
+  })
 });
 
 module.exports = router;
